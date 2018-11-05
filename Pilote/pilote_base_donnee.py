@@ -1,4 +1,5 @@
-import xlrd # faire pip install xlutil
+
+import xlrd # faire pip install xlutils
 
 ## ouverture du fichier Excel 
 # wb = xlrd.open_workbook('baseflor.xlsx')
@@ -17,4 +18,6 @@ import xlrd # faire pip install xlutil
 # print colonne1[1],colonne2[1]
 
 def afficheContenuCase (a,b): #la base de donnée à besoin d'être dans le même dossier que ce fichier, a est la ligne, b la colonne
-	return xlrd.open_workbook('baseflor.xlsx').sheet_by_name(xlrd.open_workbook('baseflor.xlsx').sheet_names[0]).col_values(b)[a]
+	wb = xlrd.open_workbook('baseflor.xlsx') # C'est cette etape qui prend le plus longtemps
+	return wb.sheet_by_name(wb.sheet_names()[0]).col_values(b)[a]
+
