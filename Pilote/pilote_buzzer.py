@@ -25,15 +25,16 @@ import time
 import grovepi
 
 
-def sonnerie_buzzer (num_pin_buzzer):
+def sonnerie_buzzerON (num_pin_buzzer):
     grovepi.pinMode(num_pin_buzzer,"OUTPUT")
     
-    # Buzz for 0.5 second
     grovepi.digitalWrite(num_pin_buzzer,1)
     print ('on')
-    time.sleep(0.5)
+
+
+def sonnerie_buzzerOFF (num_pin_buzzer):
+    grovepi.pinMode(num_pin_buzzer,"OUTPUT")
     
-    # Stop buzzing for 5 minute and repeat
     grovepi.digitalWrite(num_pin_buzzer,0)
     print ('off')
-    time.sleep(300)
+
