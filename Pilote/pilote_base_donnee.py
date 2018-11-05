@@ -18,6 +18,5 @@ import xlrd # faire pip install xlutils
 # print colonne1[1],colonne2[1]
 
 def afficheContenuCase (a,b): #la base de donnée à besoin d'être dans le même dossier que ce fichier, a est la ligne, b la colonne
-	wb = xlrd.open_workbook('baseflor.xlsx') # C'est cette etape qui prend le plus longtemps
+	wb = xlrd.open_workbook('baseflor.xlsx') # C'est cette etape qui prend le plus longtemps, peut-etre la globaliser
 	return wb.sheet_by_name(wb.sheet_names()[0]).col_values(b)[a]
-
