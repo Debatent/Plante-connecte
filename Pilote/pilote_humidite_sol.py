@@ -36,9 +36,7 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 # 		425  sensor in humid soil
 # 		690  sensor in water
 
-import time
 import grovepi
 
 def lecture_humidite_sol (num_pin_humi_sol):
-    print(grovepi.analogRead(num_pin_humi_sol))
-    time.sleep(.5)
+    return grovepi.analogRead(num_pin_humi_sol)
