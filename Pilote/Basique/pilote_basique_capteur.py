@@ -4,10 +4,18 @@ import time
 ######################## Luminosité ###########################
 
 
-def lecture_luminosite(num_pin_lum):
+def lecture_luminosite(num_pin_lum, k=1):
+    #k le nombre de tentative
     grovepi.pinMode(num_pin_lum,"INPUT")
-    return grovepi.analogRead(num_pin_lum)
-
+    try:
+        return grovepi.analogRead(num_pin_lum)
+        if k>=4:
+            raise TentativeError("Nombre de tentative de lecture écoulé")
+    except IOError:
+        print("Erreur de lecture du capteur de luminosité")
+        k+=1
+        print(k+"ème tentative")
+        return lecture_luminosite (num_pin_lum,k)
 
 
 ######################## Humidité Sol ###########################
