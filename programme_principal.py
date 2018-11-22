@@ -7,6 +7,7 @@ pin_temp=0
 pin_lum=2
 pin_buzzer=1
 
+periode=24 #nombre d'heure de la période dans laquelle on garde les mesures
 
 eau=[]
 lumiere=[]
@@ -16,7 +17,7 @@ temperature=[]
 
 while True:
     try:
-        eau=ajout_eau(pin_hum_sol_prof,pin_hum_sol_surf,eau)
+        eau=ajout_eau(pin_hum_sol_prof,pin_hum_sol_surf,eau,periode)
     except TentativeError:
         print("Le ou les capteurs d'humidité n'ont pas pu être lu")
         print("Vérifiez si le capteur d'humidité de profondeur est branché à la prise A"+pin_hum_sol_prof)
@@ -38,5 +39,5 @@ while True:
 
     try:
         temperature=ajout_temperature(pin_temp,temperature)
-        else:
-            print("Valeur de température ajoutée")
+    else:
+        print("Valeur de température ajoutée")
