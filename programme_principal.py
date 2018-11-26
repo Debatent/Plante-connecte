@@ -7,7 +7,10 @@ pin_temp=0
 pin_lum=2
 pin_buzzer=1
 
-periode=24 #nombre d'heure de la période dans laquelle on garde les mesures
+jour=1#periode dans la quelle on regarde les mesure
+periode=24 #nombre de mesure dans cette période
+
+intervalle=3600*1/24
 
 fichier_sauv="Save"+'/''
 
@@ -52,8 +55,16 @@ while True:
 
 
     try:
-        temperature=ajout_temperature(pin_temp,temperature,period)
+        temperature=ajout_temperature(pin_temp,temperature,periode)
     else:
         print("Valeur de température ajoutée")
 
     sauvegarder(temperature, fichier_sauv+ "temperature.txt")
+
+'''if suffisemment_donne:
+    déduction luminosité, temp, et humidité sol
+    if eau non suffisant:
+        quantite_eau_necessaire
+        if manuel:
+
+        else envoyer_la_sauce'''
