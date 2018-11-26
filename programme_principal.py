@@ -9,6 +9,8 @@ pin_buzzer=1
 
 periode=24 #nombre d'heure de la période dans laquelle on garde les mesures
 
+fichier_sauv="Save"+'/''
+
 eau=[]
 lumiere=[]
 humidite=[]
@@ -25,19 +27,33 @@ while True:
     else:
         print("Valeur de l'eau ajoutée")
 
+    time.sleep(0.5)
+
+    sauvegarder(eau, fichier_sauv+ "eau.txt")
+
+
 
     try:
-        lumiere=ajout_lumiere(pin_lum,lumiere)
+        lumiere=ajout_lumiere(pin_lum,lumiere,periode)
     else:
         print("Valeur de luminosité ajoutée")
 
+    sauvegarder(lumiere, fichier_sauv+ "lumiere.txt")
+
+
 
     try:
-        humidite=ajout_humidite(pin_temp, humidite)
+        humidite=ajout_humidite(pin_temp, humidite,periode)
     else:
         print("Valeur d'humiditée ajoutée")
 
+    sauvegarder(humidite, fichier_sauv+ "humidite.txt")
+
+
+
     try:
-        temperature=ajout_temperature(pin_temp,temperature)
+        temperature=ajout_temperature(pin_temp,temperature,period)
     else:
         print("Valeur de température ajoutée")
+
+    sauvegarder(temperature, fichier_sauv+ "temperature.txt")
