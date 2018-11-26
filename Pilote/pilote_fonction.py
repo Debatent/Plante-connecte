@@ -12,6 +12,8 @@ def sauvegarder(liste, nom_fichier):
     try:
         fichier = open (nom_fichier,w)
         fichier.writeline (texte)
+    else:
+        print(fichier+" sauvegardé")
     finally:
         fichier.close()
 
@@ -37,6 +39,30 @@ def ajout_eau(pin_surf, pin_prof, liste, n):
     b=lecture_humidite_sol (pin_prof)
     c=(a+b)/2
     liste.append(c)
+    if len(liste)>n:
+        return liste[1:]
+    else:
+        return liste
+
+def ajout_lumiere(pin, liste, n):
+    a=lecture_luminosite(pin)
+    liste.append(a)
+    if len(liste)>n:
+        return liste[1:]
+    else:
+        return liste
+
+def ajout_humidite(pin, liste, n):
+    a=lecture_humidite_air(pin)
+    liste.append(a)
+    if len(liste)>n:
+        return liste[1:]
+    else:
+        return liste
+
+def ajout_temperature(pin, liste, n):
+    a=lecture_temperature(pin)
+    liste.append(a)
     if len(liste)>n:
         return liste[1:]
     else:
