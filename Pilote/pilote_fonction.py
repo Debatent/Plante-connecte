@@ -67,3 +67,9 @@ def ajout_temperature(pin, liste, n):
         return liste[1:]
     else:
         return liste
+
+
+################## fonction d'utilisation ##################
+
+def suffisemment_donne(n, liste):
+    
