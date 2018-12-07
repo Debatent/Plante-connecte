@@ -40,8 +40,7 @@ while True:
         lumiere=ajout_lumiere(pin_lum,lumiere,periode)
     except TentativeError:
         print("Le capteur de luminosité n'a pas pu être lu")
-        print("Vérifiez si le capteur de luminosité est branché à la prise A"+pin_lum
-        )
+        print("Vérifiez si le capteur de luminosité est branché à la prise A"+pin_lum)
     else:
         print("Valeur de luminosité ajoutée")
 
@@ -51,6 +50,9 @@ while True:
 
     try:
         humidite=ajout_humidite(pin_temp, humidite,periode)
+    except TentativeError:
+        print("Le capteur d'humidité de l'air/température est branché à la prise D"+pin_temp)
+        print("Vérifiez si le capteur d'humidité de l'air/température est branché à la prise D"+pin_temp)
     else:
         print("Valeur d'humiditée ajoutée")
 
@@ -60,6 +62,9 @@ while True:
 
     try:
         temperature=ajout_temperature(pin_temp,temperature,periode)
+    except TentativeError:
+        print("Le capteur d'humidité de l'air/température n'a pas pu être lu")
+        print("Vérifiez si le capteur d'humidité de l'air/température est branché à la prise D"+pin_temp)
     else:
         print("Valeur de température ajoutée")
 
