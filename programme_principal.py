@@ -38,6 +38,10 @@ while True:
 
     try:
         lumiere=ajout_lumiere(pin_lum,lumiere,periode)
+    except TentativeError:
+        print("Le capteur de luminosité n'a pas pu être lu")
+        print("Vérifiez si le capteur de luminosité est branché à la prise A"+pin_lum
+        )
     else:
         print("Valeur de luminosité ajoutée")
 
