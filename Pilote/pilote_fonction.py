@@ -72,4 +72,13 @@ def ajout_temperature(pin, liste, n):
 
 ################## fonction d'utilisation ##################
 
-#def suffisemment_donne(n, liste):
+def suffisemment_donne(n, liste):
+    return len(liste)==n
+
+
+def moyenne(liste):
+    a=0
+    for i in liste:
+        a+=i
+    return a/len(liste)
+    

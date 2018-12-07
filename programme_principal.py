@@ -70,8 +70,9 @@ while True:
 
     sauvegarder(temperature, fichier_sauv+ "temperature.txt")
 
-    '''if suffisemment_donne:
-        déduction luminosité, temp, et humidité sol
+    if suffisemment_donne:
+        
+        '''déduction luminosité, temp, et humidité sol
         if eau non suffisant:
             quantite_eau_necessaire
         if manuel:
