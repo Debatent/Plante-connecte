@@ -1,5 +1,5 @@
 import time
-from Pilote/pilote_fonction.py import  *
+from pilote_fonction.py import  *
 
 pin_hum_sol_surf=0
 pin_hum_sol_prof=1
@@ -12,7 +12,7 @@ periode=24 #nombre de mesure dans cette période
 
 intervalle=3600*1/24
 
-fichier_sauv="Save"+'/''
+fichier_sauv="Save"+'/'
 
 eau=[]
 lumiere=[]
@@ -61,10 +61,10 @@ while True:
 
     sauvegarder(temperature, fichier_sauv+ "temperature.txt")
 
-'''if suffisemment_donne:
-    déduction luminosité, temp, et humidité sol
-    if eau non suffisant:
-        quantite_eau_necessaire
+    '''if suffisemment_donne:
+        déduction luminosité, temp, et humidité sol
+        if eau non suffisant:
+            quantite_eau_necessaire
         if manuel:
 
         else envoyer_la_sauce'''

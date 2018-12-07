@@ -1,4 +1,4 @@
-from Basique/pilote_basique_capteur.py import *
+from pilote_basique_capteur.py import *
 
 ################### Pilote de sauvegarde/chargement ###########################
 
@@ -21,6 +21,7 @@ def charger (nom_fichier):
     try:
         fichier =open (nom_fichier,r)
         texte=fichier.readline()
+
     else:
         print (fichier + " chargé")
     finally:
@@ -71,5 +72,4 @@ def ajout_temperature(pin, liste, n):
 
 ################## fonction d'utilisation ##################
 
-def suffisemment_donne(n, liste):
-    
+#def suffisemment_donne(n, liste):
