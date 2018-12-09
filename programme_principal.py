@@ -20,61 +20,60 @@ humidite=[]
 temperature=[]
 
 
-while True:
-    try:
-        eau=ajout_eau(pin_hum_sol_prof,pin_hum_sol_surf,eau,periode)
-    except TentativeError:
-        print("Le ou les capteurs d'humidité n'ont pas pu être lu")
-        print("Vérifiez si le capteur d'humidité de profondeur est branché à la prise A"+pin_hum_sol_prof)
-        print("Vérifiez si le capteur d'humidité de surface est branché à la prise A"+pin_hum_sol_prof)
-    else:
-        print("Valeur de l'eau ajoutée")
+# while True: Si on fait en CRON, il faut chaanger ça : plus un while true
+try:
+    eau=ajout_eau(pin_hum_sol_prof,pin_hum_sol_surf,eau,periode)
+except TentativeError:
+    print("Le ou les capteurs d'humidité n'ont pas pu être lu")
+    print("Vérifiez si le capteur d'humidité de profondeur est branché à la prise A"+pin_hum_sol_prof)
+    print("Vérifiez si le capteur d'humidité de surface est branché à la prise A"+pin_hum_sol_prof)
+else:
+    print("Valeur de l'eau ajoutée")
 
-    time.sleep(0.5)
+time.sleep(0.5)
 
-    sauvegarder(eau, fichier_sauv+ "eau.txt")
-
-
-
-    try:
-        lumiere=ajout_lumiere(pin_lum,lumiere,periode)
-    except TentativeError:
-        print("Le capteur de luminosité n'a pas pu être lu")
-        print("Vérifiez si le capteur de luminosité est branché à la prise A"+pin_lum)
-    else:
-        print("Valeur de luminosité ajoutée")
-
-    sauvegarder(lumiere, fichier_sauv+ "lumiere.txt")
+sauvegarder(eau, fichier_sauv+ "eau.txt")
 
 
+try:
+    lumiere=ajout_lumiere(pin_lum,lumiere,periode)
+except TentativeError:
+    print("Le capteur de luminosité n'a pas pu être lu")
+    print("Vérifiez si le capteur de luminosité est branché à la prise A"+pin_lum)
+else:
+    print("Valeur de luminosité ajoutée")
 
-    try:
-        humidite=ajout_humidite(pin_temp, humidite,periode)
-    except TentativeError:
-        print("Le capteur d'humidité de l'air/température est branché à la prise D"+pin_temp)
-        print("Vérifiez si le capteur d'humidité de l'air/température est branché à la prise D"+pin_temp)
-    else:
-        print("Valeur d'humiditée ajoutée")
-
-    sauvegarder(humidite, fichier_sauv+ "humidite.txt")
+sauvegarder(lumiere, fichier_sauv+ "lumiere.txt")
 
 
 
-    try:
-        temperature=ajout_temperature(pin_temp,temperature,periode)
-    except TentativeError:
-        print("Le capteur d'humidité de l'air/température n'a pas pu être lu")
-        print("Vérifiez si le capteur d'humidité de l'air/température est branché à la prise D"+pin_temp)
-    else:
-        print("Valeur de température ajoutée")
+try:
+    humidite=ajout_humidite(pin_temp, humidite,periode)
+except TentativeError:
+    print("Le capteur d'humidité de l'air/température est branché à la prise D"+pin_temp)
+    print("Vérifiez si le capteur d'humidité de l'air/température est branché à la prise D"+pin_temp)
+else:
+    print("Valeur d'humiditée ajoutée")
 
-    sauvegarder(temperature, fichier_sauv+ "temperature.txt")
+sauvegarder(humidite, fichier_sauv+ "humidite.txt")
 
-    if suffisemment_donne:
+
+
+try:
+    temperature=ajout_temperature(pin_temp,temperature,periode)
+except TentativeError:
+    print("Le capteur d'humidité de l'air/température n'a pas pu être lu")
+    print("Vérifiez si le capteur d'humidité de l'air/température est branché à la prise D"+pin_temp)
+else:
+    print("Valeur de température ajoutée")
+
+sauvegarder(temperature, fichier_sauv+ "temperature.txt")
+
+if suffisemment_donne:
         
-        '''déduction luminosité, temp, et humidité sol
-        if eau non suffisant:
-            quantite_eau_necessaire
-        if manuel:
+    '''déduction luminosité, temp, et humidité sol
+    if eau non suffisant:
+        quantite_eau_necessaire
+    if manuel:
 
-        else envoyer_la_sauce'''
+    else envoyer_la_sauce'''
