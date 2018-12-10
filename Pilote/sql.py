@@ -40,4 +40,4 @@ def id_plante (nom_plante) :
     k = r[0]
     return r
   except :
-    print("Le nom selectionné n'est pas dans la base, réessaiyez plus tard")
+    print("Le nom selectionné n'est pas dans la base, réessayez plus tard")
