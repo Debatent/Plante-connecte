@@ -7,10 +7,10 @@ pin_temp=0
 pin_lum=2
 pin_buzzer=1
 
-jour=1#periode dans la quelle on regarde les mesure
-periode=24 #nombre de mesure dans cette période
+#jour=1#periode dans la quelle on regarde les mesure
+#periode=24 #nombre de mesure dans cette période
 
-intervalle=3600*1/24
+#intervalle=3600*1/24
 
 fichier_sauv="Save"+'/'
 
@@ -20,7 +20,7 @@ humidite=[]
 temperature=[]
 
 
-# while True: Si on fait en CRON, il faut chaanger ça : plus un while true
+# while True: Si on fait en CRON, il faut changer ça : plus un while true
 try:
     eau=ajout_eau(pin_hum_sol_prof,pin_hum_sol_surf,eau,periode)
 except TentativeError:
