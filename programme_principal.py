@@ -1,5 +1,6 @@
 import time
-from pilote_fonction.py import *
+import os
+from os.path.abspath(Pilote/pilote_fonction.py) import *
 
 pin_hum_sol_surf=0
 pin_hum_sol_prof=1
@@ -12,7 +13,7 @@ pin_buzzer=1
 
 #intervalle=3600*1/24
 
-fichier_sauv="Save"+'/'
+fichier_sauv=str(os.getcwd())+"Save"+'/'
 
 eau=[]
 lumiere=[]
@@ -45,7 +46,7 @@ else:
 
 sauvegarder(lumiere, fichier_sauv+ "lumiere.txt")
 
-
+time.sleep(0.5)
 
 try:
     humidite=ajout_humidite(pin_temp, humidite,periode)
@@ -57,7 +58,7 @@ else:
 
 sauvegarder(humidite, fichier_sauv+ "humidite.txt")
 
-
+time.sleep(0.5)
 
 try:
     temperature=ajout_temperature(pin_temp,temperature,periode)
@@ -69,8 +70,11 @@ else:
 
 sauvegarder(temperature, fichier_sauv+ "temperature.txt")
 
-if suffisemment_donne:
-        
+time.sleep(0.5)
+
+
+if suffisemment_donne(n,eau):
+
     '''déduction luminosité, temp, et humidité sol
     if eau non suffisant:
         quantite_eau_necessaire
