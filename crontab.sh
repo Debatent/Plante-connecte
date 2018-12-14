@@ -3,3 +3,5 @@
 # Cela amene vers un editeuret un fichier de job réguliers
 # rajouter :
 # 0-59/5 * * * * programme_principal.py
+# et faire plante le user par defaut de la raspberry
+
