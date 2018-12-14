@@ -72,9 +72,18 @@ sauvegarder(temperature, fichier_sauv+ "temperature.txt")
 
 time.sleep(0.5)
 
+if reservoirvide():
+    alerte()
+    print("on ne peut pas s'assurer que la plante a assez d'eau, raison : réservoir vide")
 
-if suffisemment_donne(periode,eau):
-    
+elif suffisemment_donnee(periode,eau):
+    moy=moyenne(eau)
+    if ellevacrever(moy):
+        quantite_eau_necessaire
+        arroser
+        reset(eau)
+    else:
+        print("Tout va bien")
 
     '''déduction luminosité, temp, et humidité sol
     if eau non suffisant:
