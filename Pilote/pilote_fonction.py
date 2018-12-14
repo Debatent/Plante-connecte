@@ -1,6 +1,6 @@
 import time
 from pilote_basique_capteur.py import *
-from sql.py import *
+from sql import *
 
 ################### Pilote de sauvegarde/chargement ###########################
 
