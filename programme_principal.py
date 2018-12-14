@@ -9,7 +9,7 @@ pin_lum=2
 pin_buzzer=1
 
 #jour=1#periode dans la quelle on regarde les mesure
-#periode=24 #nombre de mesure dans cette période
+periode=24 #nombre de mesure dans cette période
 
 #intervalle=3600*1/24
 
@@ -73,7 +73,8 @@ sauvegarder(temperature, fichier_sauv+ "temperature.txt")
 time.sleep(0.5)
 
 
-if suffisemment_donne(n,eau):
+if suffisemment_donne(periode,eau):
+    
 
     '''déduction luminosité, temp, et humidité sol
     if eau non suffisant:
