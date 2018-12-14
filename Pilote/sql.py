@@ -7,12 +7,16 @@ import sqlite3
 conn = sqlite3.connect('baseflor.db')
 c = conn.cursor()
 
-def get_Data (id_plante) : # nom_plante est une chaine de charactere qui designe le nom scientifique de la plante
+def get_Data (id_plante) :
+  # nom_plante est une chaine de charactere qui designe le nom scientifique de la plante
+  id_plante = (id_plante,)
   c.execute('SELECT * FROM base WHERE id = ?',id_plante)
   return c.fetchall()[0]
 
 def id_plante (nom_plante) :
+  # il faut appeler
   try :
+    nom_plante = (nom_plante,)
     c.execute('SELECT * FROM base WHERE nom = ?',nom_plante)
     res = c.fetchone()[0]
     return res
