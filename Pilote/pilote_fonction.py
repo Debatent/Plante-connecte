@@ -1,3 +1,4 @@
+import time
 from pilote_basique_capteur.py import *
 from sql.py import *
 
@@ -71,7 +72,7 @@ def ajout_temperature(pin, liste, n):
         return liste
 
 
-################## fonction d'utilisation ##################
+################## fonction d'analyse ##################
 
 def suffisemment_donne(n, liste):
     return len(liste)==n
@@ -82,4 +83,11 @@ def moyenne(liste):
     for i in liste:
         a+=i
     return a/len(liste)
-    
+
+
+################# fonction de sortie ####################
+
+def alerte(pin):
+    ouvrir_relai(pin)
+    time.sleep(0.2)
+    fermer_relai (pin)
