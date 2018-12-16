@@ -84,6 +84,8 @@ def moyenne(liste):
         a+=i
     return a/len(liste)
 
+def reset(liste):
+    return liste=[]
 
 ################# fonction de sortie ####################
 
