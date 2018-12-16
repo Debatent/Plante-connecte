@@ -12,6 +12,8 @@ pin_buzzer=1
 periode=24 #nombre de mesure dans cette période
 
 #intervalle=3600*1/24
+automatique = True
+
 
 fichier_sauv=str(os.getcwd())+"Save"+'/'
 
@@ -79,11 +81,21 @@ if reservoirvide():
 elif suffisemment_donnee(periode,eau):
     moy=moyenne(eau)
     if ellevacrever(moy):
-        quantite_eau_necessaire
-        arroser
-        reset(eau)
+        if automatique:
+            quantite_eau_necessaire
+            arroser
+            reset(eau)
+        else:
+            if eau[-1] >= niveaunécessaire:
+                reset(eau)
+            else:
+                print("Alerte: veulliez arroser votre plante")
     else:
         print("Tout va bien")
+
+
+
+
 
 if suffisemment_donnee(periode,lumiere):
     moy=moyenne(lumiere)
@@ -95,6 +107,9 @@ if suffisemment_donnee(periode,lumiere):
 
 
 
+
+
+
 if suffisemment_donnee(periode,temperature):
     moy=moyenne(temperature)
     if ellevacrever(moy):
@@ -102,6 +117,9 @@ if suffisemment_donnee(periode,temperature):
             print ("Alerte: mettez votre plante dans un endroit plus chaud")
         else:
             print ("Alerte: mettez votre plante dans un endroit moins chaud")
+
+
+
 
     '''déduction luminosité, temp, et humidité sol
     if eau non suffisant:
