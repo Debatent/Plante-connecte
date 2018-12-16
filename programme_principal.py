@@ -85,6 +85,24 @@ elif suffisemment_donnee(periode,eau):
     else:
         print("Tout va bien")
 
+if suffisemment_donnee(periode,lumiere):
+    moy=moyenne(lumiere)
+    if ellevacrever(moy):
+        if moy <= niveauneccessaire:
+            print ("Alerte: mettez votre plante plus à la lumière")
+        else:
+            print ("Alerte: mettez votre plante moins à la lumière")
+
+
+
+if suffisemment_donnee(periode,temperature):
+    moy=moyenne(temperature)
+    if ellevacrever(moy):
+        if moy <= niveauneccessaire:
+            print ("Alerte: mettez votre plante dans un endroit plus chaud")
+        else:
+            print ("Alerte: mettez votre plante dans un endroit moins chaud")
+
     '''déduction luminosité, temp, et humidité sol
     if eau non suffisant:
         quantite_eau_necessaire
