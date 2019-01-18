@@ -1,12 +1,13 @@
 import time
-import os
-from os.path.abspath(Pilote/pilote_fonction.py) import *
+
+from pilote_fonction import *
 
 pin_hum_sol_surf=0
 pin_hum_sol_prof=1
 pin_temp=0
 pin_lum=2
 pin_buzzer=1
+pin_relai=3
 
 #jour=1#periode dans la quelle on regarde les mesure
 periode=24 #nombre de mesure dans cette période
@@ -15,7 +16,7 @@ periode=24 #nombre de mesure dans cette période
 automatique = True
 
 
-fichier_sauv=str(os.getcwd())+"Save"+'/'
+
 
 eau=[]
 lumiere=[]
@@ -25,17 +26,20 @@ temperature=[]
 
 # while True: Si on fait en CRON, il faut changer ça : plus un while true
 try:
-    eau=ajout_eau(pin_hum_sol_prof,pin_hum_sol_surf,eau,periode)
+    eau=ajout_eau(pin_hum_sol_surf, eau, periode)
 except TentativeError:
     print("Le ou les capteurs d'humidité n'ont pas pu être lu")
-    print("Vérifiez si le capteur d'humidité de profondeur est branché à la prise A"+pin_hum_sol_prof)
+    #print("Vérifiez si le capteur d'humidité de profondeur est branché à la prise A"+pin_hum_sol_prof)
     print("Vérifiez si le capteur d'humidité de surface est branché à la prise A"+pin_hum_sol_prof)
 else:
     print("Valeur de l'eau ajoutée")
 
+sauvegarder(eau, "eau.txt")
+
 time.sleep(0.5)
 
-sauvegarder(eau, fichier_sauv+ "eau.txt")
+
+
 
 
 try:
@@ -46,9 +50,14 @@ except TentativeError:
 else:
     print("Valeur de luminosité ajoutée")
 
-sauvegarder(lumiere, fichier_sauv+ "lumiere.txt")
+sauvegarder(lumiere, "lumiere.txt")
 
 time.sleep(0.5)
+
+
+
+
+
 
 try:
     humidite=ajout_humidite(pin_temp, humidite,periode)
@@ -62,6 +71,15 @@ sauvegarder(humidite, fichier_sauv+ "humidite.txt")
 
 time.sleep(0.5)
 
+
+
+
+
+
+
+
+
+
 try:
     temperature=ajout_temperature(pin_temp,temperature,periode)
 except TentativeError:
@@ -70,23 +88,35 @@ except TentativeError:
 else:
     print("Valeur de température ajoutée")
 
-sauvegarder(temperature, fichier_sauv+ "temperature.txt")
+sauvegarder(temperature,"temperature.txt")
 
 time.sleep(0.5)
 
+
+
+
+
+
+
+
+"""
 if reservoirvide():
     alerte()
     print("on ne peut pas s'assurer que la plante a assez d'eau, raison : réservoir vide")
+"""
+
+
+
 
 elif suffisemment_donnee(periode,eau):
     moy=moyenne(eau)
-    if ellevacrever(moy):
+    if ellevacrevereau(moy):
         if automatique:
-            quantite_eau_necessaire
-            arroser
+            quantite=quantite_eau_necessaire()
+            arroser(quantite, pin_relai)
             reset(eau)
         else:
-            if eau[-1] >= niveaunécessaire:
+            if eau[-1] >= niveaunecessaireeau():
                 reset(eau)
             else:
                 print("Alerte: veulliez arroser votre plante")
@@ -97,10 +127,11 @@ elif suffisemment_donnee(periode,eau):
 
 
 
+
 if suffisemment_donnee(periode,lumiere):
     moy=moyenne(lumiere)
-    if ellevacrever(moy):
-        if moy <= niveauneccessaire:
+    if ellevacreverlumiere(moy):
+        if moy <= niveauneccessairelumiere():
             print ("Alerte: mettez votre plante plus à la lumière")
         else:
             print ("Alerte: mettez votre plante moins à la lumière")
@@ -112,13 +143,14 @@ if suffisemment_donnee(periode,lumiere):
 
 if suffisemment_donnee(periode,temperature):
     moy=moyenne(temperature)
-    if ellevacrever(moy):
-        if moy <= niveauneccessaire:
+    if ellevacrevertemperature(moy):
+        if moy <= niveauneccessairetemperature():
             print ("Alerte: mettez votre plante dans un endroit plus chaud")
         else:
             print ("Alerte: mettez votre plante dans un endroit moins chaud")
 
 
+print("la boucle s'est terminée")
 
 
     '''déduction luminosité, temp, et humidité sol

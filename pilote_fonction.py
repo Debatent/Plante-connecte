@@ -37,11 +37,11 @@ def charger (nom_fichier):
 ####################### fonction ###############################
 
 
-def ajout_eau(pin_surf, pin_prof, liste, n):
+def ajout_eau(pin_surf, liste, n):
     a=lecture_humidite_sol (pin_surf)
-    b=lecture_humidite_sol (pin_prof)
-    c=(a+b)/2
-    liste.append(c)
+"""    b=lecture_humidite_sol (pin_prof)
+    c=(a+b)/2"""
+    liste.append(a)
     if len(liste)>n:
         return liste[1:]
     else:
@@ -87,9 +87,35 @@ def moyenne(liste):
 def reset(liste):
     return liste=[]
 
+#def ellevacrevereau(moy): #on va fixer une plante arbitraire, renvoie true si la plante est dans de mauvaises conditions
+
+#def ellevacreverlumiere(moy): #idem
+
+#def ellevacrevertemperature(moy): #idem
+
+#def quantite_eau_necessaire(): #nom de la plante fixé arbitrairement, renvoie la quantité d'eau en litre à fournir
+
+#def niveaunecessaireeau(): #renvoie la valeur que doit atteindre la moyenne du niveau d'eau pour que la plante soit en bonne santé
+
+#def niveauneccessairelumiere(): #renvoie la valeur que doit atteindre la moyenne du niveau de lumiere pour que la plante soit en bonne santé
+
+#def niveauneccessairetemperature(): #renvoie la valeur que doit atteindre la moyenne du niveau de temperature pour que la plante soit en bonne santé
+
 ################# fonction de sortie ####################
 
 def alerte(pin):
     ouvrir_relai(pin)
     time.sleep(0.2)
     fermer_relai (pin)
+
+
+def arroser(litre,pin):
+    """Litre: la quantité d'eau à verser
+       pin: la broche du relai"""
+    debit=0.125#le debit de la pompe en litre/seconde
+    eautotale=0#L'eau totale versée
+    ouvrir_relai(pin)
+    while eautotale < litre:
+        time.sleep(1)
+        eautotale+=debit
+    fermer_relai(pin)
