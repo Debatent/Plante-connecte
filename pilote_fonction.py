@@ -1,4 +1,3 @@
-import time
 from pilote_basique_capteur.py import *
 from sql import *
 
