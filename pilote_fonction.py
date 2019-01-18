@@ -11,24 +11,21 @@ def sauvegarder(liste, nom_fichier):
         texte=text+ virgule +str(i)
         virgule = ","
 
-    try:
-        fichier = open (nom_fichier,w)
-        fichier.writeline (texte)
-    else:
-        print(fichier+" sauvegardé")
-    finally:
-        fichier.close()
+    fichier = open (nom_fichier,w)
+    fichier.writeline (texte)
+
+    print(fichier+" sauvegardé")
+
+    fichier.close()
 
 def charger (nom_fichier):
-    try:
-        fichier =open (nom_fichier,r)
-        texte=fichier.readline()
 
-    else:
-        print (fichier + " chargé")
-    finally:
-        fichier.close()
-    texte=texte.split(",")]
+    fichier =open (nom_fichier,r)
+    texte=fichier.readline()
+
+    print (fichier + " chargé")
+    fichier.close()
+    texte=texte.split(",")
     resultat=[]
     for i in texte:
         resultat.append(int(i))
@@ -39,8 +36,6 @@ def charger (nom_fichier):
 
 def ajout_eau(pin_surf, liste, n):
     a=lecture_humidite_sol (pin_surf)
-"""    b=lecture_humidite_sol (pin_prof)
-    c=(a+b)/2"""
     liste.append(a)
     if len(liste)>n:
         return liste[1:]
@@ -85,21 +80,65 @@ def moyenne(liste):
     return a/len(liste)
 
 def reset(liste):
-    return liste=[]
+    liste=[]
+    return liste
 
-#def ellevacrevereau(moy): #on va fixer une plante arbitraire, renvoie true si la plante est dans de mauvaises conditions
+################## Fonctions qui ont besoin de la bdd ############# 
 
-#def ellevacreverlumiere(moy): #idem
+# Ouvrir la base de donnée sous sql
+# conn = sqlite3.connect('baseflor.db')
+# c = conn.cursor()
 
-#def ellevacrevertemperature(moy): #idem
+def ellevacrevereau(moy, plante): #on va fixer une plante arbitraire, renvoie true si la plante est dans de mauvaises conditions
+    mesure=niveaunecessaireeau(plante)
+    return mesure < (0.8 * moy) 
 
-#def quantite_eau_necessaire(): #nom de la plante fixé arbitrairement, renvoie la quantité d'eau en litre à fournir
+def ellevacreverlumiere(moy, plante): #idem
+    mesure=niveauneccessairelumiere(plante)
+    return (mesure < (0.3 * moy) or mesure > (1.7 * moy))
 
-#def niveaunecessaireeau(): #renvoie la valeur que doit atteindre la moyenne du niveau d'eau pour que la plante soit en bonne santé
+def ellevacrevertemperature(moy, plante): #idem
+    mesure=niveauneccessairetemperature(plante)
+    return (mesure < (0.2 * moy) or mesure < (1.8 * moy))
 
-#def niveauneccessairelumiere(): #renvoie la valeur que doit atteindre la moyenne du niveau de lumiere pour que la plante soit en bonne santé
+def ellevacreverhumidite(moy, plante): #idem
+    mesure=niveauneccessairehumidite(plante)
+    return (mesure < (0.2 * moy) or mesure < (1.8 * moy))
 
-#def niveauneccessairetemperature(): #renvoie la valeur que doit atteindre la moyenne du niveau de temperature pour que la plante soit en bonne santé
+def niveaunecessaireeau(plante): #renvoie la valeur que doit atteindre la moyenne du niveau d'eau pour que la plante soit en bonne santé
+    conn=sqlite3.connect('baseflor.db')
+    c=conn.cursor()
+    mesure=get_data(plante, c)[5]
+    conn.close()
+    return mesure*60 
+
+def niveauneccessairelumiere(plante): #renvoie la valeur que doit atteindre la moyenne du niveau de lumiere pour que la plante soit en bonne santé
+    conn=sqlite3.connect('baseflor.db')
+    c=conn.cursor()
+    mesure=get_data(plante, c)[2]
+    conn.close()
+    return mesure * 70
+
+def niveauneccessairehumidite(plante): #renvoie la valeur que doit atteindre la moyenne du niveau de humi pour que la plante soit en bonne santé
+    conn=sqlite3.connect('baseflor.db')
+    c=conn.cursor()
+    mesure=get_data(plante, c)[4]
+    conn.close()
+    return mesure*5
+
+def niveauneccessairetemperature(plante): #renvoie la valeur que doit atteindre la moyenne du niveau de temperature pour que la plante soit en bonne santé
+    conn=sqlite3.connect('baseflor.db')
+    c=conn.cursor()
+    mesure=get_data(plante, c)[3]
+    conn.close()
+    return 10 + mesure*4 
+
+def quantite_eau_necessaire(moy, plante): #id de la plante fixé arbitrairement, renvoie la quantité d'eau en litre à fournir
+    return (niveauneccessaireeau() - moy) / 100
+
+
+def init_est_fait():
+    return len(charger("plante.txt"))>0
 
 ################# fonction de sortie ####################
 
@@ -112,8 +151,8 @@ def alerte(pin):
 def arroser(litre,pin):
     """Litre: la quantité d'eau à verser
        pin: la broche du relai"""
-    debit=0.125#le debit de la pompe en litre/seconde
-    eautotale=0#L'eau totale versée
+    debit=0.125 # le debit de la pompe en litre/seconde
+    eautotale=0 # L'eau totale versée
     ouvrir_relai(pin)
     while eautotale < litre:
         time.sleep(1)

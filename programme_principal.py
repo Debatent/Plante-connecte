@@ -3,20 +3,25 @@ import time
 from pilote_fonction import *
 
 pin_hum_sol_surf=0
-pin_hum_sol_prof=1
-pin_temp=0
+#pin_hum_sol_prof=1
 pin_lum=2
+
+pin_temp=0
 pin_buzzer=1
 pin_relai=3
 
 #jour=1#periode dans la quelle on regarde les mesure
+
 periode=24 #nombre de mesure dans cette période
+# le temps entre chaque mesure est set en tant que crontab
 
 #intervalle=3600*1/24
 automatique = True
 
-
-
+if init_est_fait() :
+    plante=charger("plante.txt")[0] # charge l'id de la plante
+else :
+	plante=id_default()
 
 eau=[]
 lumiere=[]
@@ -25,6 +30,8 @@ temperature=[]
 
 
 # while True: Si on fait en CRON, il faut changer ça : plus un while true
+
+
 try:
     eau=ajout_eau(pin_hum_sol_surf, eau, periode)
 except TentativeError:
@@ -108,18 +115,16 @@ if reservoirvide():
 
 
 
-elif suffisemment_donnee(periode,eau):
+if suffisemment_donnee(periode,eau): # humidite : teste si on a assez de mesures effectuées
     moy=moyenne(eau)
-    if ellevacrevereau(moy):
+    if ellevacrevereau(moy, plante):
         if automatique:
-            quantite=quantite_eau_necessaire()
+            quantite=quantite_eau_necessaire(moy, plante)
             arroser(quantite, pin_relai)
             reset(eau)
         else:
-            if eau[-1] >= niveaunecessaireeau():
-                reset(eau)
-            else:
-                print("Alerte: veulliez arroser votre plante")
+            reset(eau)
+            print("Alerte: veuilliez arroser votre plante")
     else:
         print("Tout va bien")
 
@@ -130,21 +135,28 @@ elif suffisemment_donnee(periode,eau):
 
 if suffisemment_donnee(periode,lumiere):
     moy=moyenne(lumiere)
-    if ellevacreverlumiere(moy):
-        if moy <= niveauneccessairelumiere():
+    if ellevacreverlumiere(moy, plante):
+        if moy <= niveauneccessairelumiere(plante):
             print ("Alerte: mettez votre plante plus à la lumière")
         else:
             print ("Alerte: mettez votre plante moins à la lumière")
 
 
+if suffisemment_donnee(periode, humidite):
+    moy=moyenne(humidite)
+    if ellevacreverhumidite(moy, plante):
+        if moy <= niveauneccessairehumidite(plante):
+            print ("Alerte: mettez votre plante dans un endroit plus humide")
+        else:
+            print ("Alerte: mettez votre plante dans un endroit plus sec")
 
 
 
 
 if suffisemment_donnee(periode,temperature):
     moy=moyenne(temperature)
-    if ellevacrevertemperature(moy):
-        if moy <= niveauneccessairetemperature():
+    if ellevacrevertemperature(moy, plante):
+        if moy <= niveauneccessairetemperature(plante):
             print ("Alerte: mettez votre plante dans un endroit plus chaud")
         else:
             print ("Alerte: mettez votre plante dans un endroit moins chaud")
@@ -153,9 +165,4 @@ if suffisemment_donnee(periode,temperature):
 print("la boucle s'est terminée")
 
 
-    '''déduction luminosité, temp, et humidité sol
-    if eau non suffisant:
-        quantite_eau_necessaire
-    if manuel:
 
-    else envoyer_la_sauce'''
