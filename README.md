@@ -6,7 +6,8 @@ Projet utilisant un raspberry en IG3
     I. Installations	
     II. Démarrage 	
     III. Utilisation 	
-    IV. Foire Aux Questions / Frequently Asked Questions 	
+    IV. Foire Aux Questions / Frequently Asked Questions 
+    V. Materiel utilisé
 
 ## Installations
 
@@ -85,3 +86,17 @@ Normalement, vous verrez, en moins de 30 minutes, s’afficher les dernières me
         
     5. J’ai débranché la Plante Connectée involontairement, que dois-je faire ?
         ◦ Vous devez redemarrer la Plante Connectée comme si c’était la première fois que vous l’utilisez : ses données importantes sont sauvegardées régulièrement
+        
+## Materiels utilisés
+
+RaspberryPi
+GrovePlus => grovepi
+4 capteurs => Seeed wiki
+Python 3.7 et sqlite3
+Base de donnée => philippe.julve.pagesperso-orange.fr/catminat.htm
+Julve, Ph., 1998 ff. - Baseflor. Index botanique, écologique et chorologique de la flore de France. Version : "date de la version citée". http://perso.wanadoo.fr/philippe.julve/catminat.htm
+
+
+
+
+
