@@ -1,5 +1,3 @@
-import time
-
 from pilote_fonction import *
 
 pin_hum_sol_surf=0
