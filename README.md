@@ -89,11 +89,11 @@ Normalement, vous verrez, en moins de 30 minutes, s’afficher les dernières me
    
        ◦ Cela dépends du systeme d’expoitation de votre ordinateur :
        
-            ▪ Windows : appuyer sur la touche + R, entrez cmd dans la boite de dialogue, puis validez
+         ▪ Windows : appuyer sur la touche + R, entrez cmd dans la boite de dialogue, puis validez
+          
+         ▪ Mac : En haut a droite, allez dans rechercher, puis entrez terminal, et ouvrez l’application terminal.
             
-            ▪ Mac : En haut a droite, allez dans rechercher, puis entrez terminal, et ouvrez l’application terminal.
-            
-            ▪ Linux : voir sur ce lien : https://doc.ubuntu-fr.org/terminal
+         ▪ Linux : voir sur ce lien : https://doc.ubuntu-fr.org/terminal
             
    2. Comment savoir si la plante Connectée est sous tension ?
    
