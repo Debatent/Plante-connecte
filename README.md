@@ -90,10 +90,15 @@ Normalement, vous verrez, en moins de 30 minutes, s’afficher les dernières me
 ## Materiels utilisés
 
 RaspberryPi
+
 GrovePlus => grovepi
+
 4 capteurs => Seeed wiki
+
 Python 3.7 et sqlite3
+
 Base de donnée => philippe.julve.pagesperso-orange.fr/catminat.htm
+
 Julve, Ph., 1998 ff. - Baseflor. Index botanique, écologique et chorologique de la flore de France. Version : "date de la version citée". http://perso.wanadoo.fr/philippe.julve/catminat.htm
 
 
