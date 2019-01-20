@@ -4,7 +4,7 @@ pin_hum_sol_surf=0
 #pin_hum_sol_prof=1
 pin_lum=2
 
-pin_temp=0
+pin_temp=4
 pin_buzzer=1
 pin_relai=3
 
