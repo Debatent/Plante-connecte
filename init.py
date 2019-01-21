@@ -22,7 +22,7 @@ while not satisfait :
 		else:
 			rep = ""
 			for data in res:
-				rep += data[1][1] +"\n"
+				rep += data +"\n"
 			print("Votre plante ne correspond pas a aucun nom, reessayez avec un de ces noms :")
 			print(res)
 	else : # nom trouve
