@@ -7,7 +7,7 @@ def sauvegarder(liste, nom_fichier):
     texte=""
     virgule = ""
     for i in liste:
-        texte=text+ virgule +str(i)
+        texte += virgule + str(i)
         virgule = ","
 
     fichier = open (nom_fichier,w)
