@@ -132,7 +132,7 @@ def niveauneccessairetemperature(plante): #renvoie la valeur que doit atteindre 
     conn.close()
     return 10 + mesure*4 
 
-def quantite_eau_necessaire(moy, plante): #id de la plante fixe arbitrairement, renvoie la quantite d'eau en litre à fournir
+def quantite_eau_necessaire(moy, plante): #id de la plante fixe arbitrairement, renvoie la quantite d'eau en litre a fournir
     return (niveauneccessaireeau() - moy) / 100
 
 
