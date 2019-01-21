@@ -40,7 +40,7 @@ def lecture_luminosite(num_pin_lum, k=1):
 
 
 def lecture_humidite_sol (num_pin_humi_sol):
-    grovepi.pinMode(num_pin_lum,"INPUT")
+    grovepi.pinMode(num_pin_humi_sol,"INPUT")
     return grovepi.analogRead(num_pin_humi_sol)
 
 
