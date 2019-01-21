@@ -27,7 +27,7 @@ def charger (nom_fichier):
     texte=texte.split(",")
     resultat=[]
     for i in texte:
-        resultat.append(float(i))
+        resultat.append(i)
     return resultat
 
 ####################### fonction ###############################
