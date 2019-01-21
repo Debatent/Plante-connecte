@@ -18,7 +18,7 @@ while not satisfait :
 	if len(res) <= 0 :
 		res = data_like(nom,c)
 		if len(res) <= 0:
-			print("Votre plante n'a pas ete trouvée dans la base de donnee, veuillez reessayer.")
+			print("Votre plante n'a pas ete trouvee dans la base de donnee, veuillez reessayer.")
 		else:
 			rep = ""
 			for data in res:
