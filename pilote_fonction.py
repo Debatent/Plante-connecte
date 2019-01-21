@@ -10,7 +10,7 @@ def sauvegarder(liste, nom_fichier):
         texte += virgule + str(i)
         virgule = ","
 
-    fichier = open (nom_fichier,w)
+    fichier = open(nom_fichier,'w')
     fichier.writeline (texte)
 
     print(fichier+" sauvegarde")
@@ -19,7 +19,7 @@ def sauvegarder(liste, nom_fichier):
 
 def charger (nom_fichier):
 
-    fichier =open (nom_fichier,r)
+    fichier =open (nom_fichier,'r')
     texte=fichier.readline()
 
     print (fichier + " charge")
