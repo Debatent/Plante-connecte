@@ -13,7 +13,7 @@ def sauvegarder(liste, nom_fichier):
     fichier = open(nom_fichier,'w')
     fichier.writelines(texte)
 
-    print(fichier+" sauvegarde")
+    print(nom_fichier+" sauvegarde")
 
     fichier.close()
 
@@ -22,7 +22,7 @@ def charger (nom_fichier):
     fichier =open(nom_fichier,'r')
     texte=fichier.readline()
 
-    print(fichier + " charge")
+    print(nom_fichier + " charge")
     fichier.close()
     texte=texte.split(",")
     resultat=[]
