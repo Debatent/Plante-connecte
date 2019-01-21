@@ -123,4 +123,4 @@ Python 3.7 et sqlite3
 
 Base de donnée => philippe.julve.pagesperso-orange.fr/catminat.htm
 
-Julve, Ph., 1998 ff. - Baseflor. Index botanique, écologique et chorologique de la flore de France. Version : "date de la version citée". http://perso.wanadoo.fr/philippe.julve/catminat.htm
+Julve, Ph., 1998 ff. - Baseflor. Index botanique, écologique et chorologique de la flore de France. Version : "20/01/2019". http://perso.wanadoo.fr/philippe.julve/catminat.htm

@@ -1,7 +1,7 @@
 import grovepi
 import time
 
-######################## Luminosité ###########################
+######################## Luminosite ###########################
 
 
 def lecture_luminosite(num_pin_lum, k=1):
@@ -11,16 +11,16 @@ def lecture_luminosite(num_pin_lum, k=1):
         res=grovepi.analogRead(num_pin_lum)
         return res
     except IOError :
-        print("Erreur de lecture du capteur de luminosité")
+        print("Erreur de lecture du capteur de luminosite")
         k+=1
         if k>=4:
-            raise TentativeError("Nombre de tentative de lecture écoulé")
+            raise TentativeError("Nombre de tentative de lecture ecoule")
         else :
-            print(k+"ème tentative")
+            print(k+"eme tentative")
             return lecture_luminosite (num_pin_lum,k)
 
 
-######################## Humidité Sol ###########################
+######################## Humidite Sol ###########################
 
 
 # NOTE:
@@ -83,7 +83,7 @@ def lecture_humidite_air(num_pin_temp,couleur=0):
 def fermer_relai(num_pin_relai):
     grovepi.pinMode(num_pin_relai,"OUTPUT")
     grovepi.digitalWrite(num_pin_relai,1)
-    print("Relai fermé")
+    print("Relai ferme")
 
 def ouvrir_relai(num_pin_relai):
     grovepi.pinMode(num_pin_relai,"OUTPUT")

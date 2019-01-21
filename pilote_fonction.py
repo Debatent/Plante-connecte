@@ -13,7 +13,7 @@ def sauvegarder(liste, nom_fichier):
     fichier = open (nom_fichier,w)
     fichier.writeline (texte)
 
-    print(fichier+" sauvegardé")
+    print(fichier+" sauvegarde")
 
     fichier.close()
 
@@ -22,7 +22,7 @@ def charger (nom_fichier):
     fichier =open (nom_fichier,r)
     texte=fichier.readline()
 
-    print (fichier + " chargé")
+    print (fichier + " charge")
     fichier.close()
     texte=texte.split(",")
     resultat=[]
@@ -84,7 +84,7 @@ def reset(liste):
 
 ################## Fonctions qui ont besoin de la bdd ############# 
 
-# Ouvrir la base de donnée sous sql
+# Ouvrir la base de donnee sous sql
 # conn = sqlite3.connect('baseflor.db')
 # c = conn.cursor()
 
@@ -104,35 +104,35 @@ def ellevacreverhumidite(moy, plante): #idem
     mesure=niveauneccessairehumidite(plante)
     return (mesure < (0.2 * moy) or mesure < (1.8 * moy))
 
-def niveaunecessaireeau(plante): #renvoie la valeur que doit atteindre la moyenne du niveau d'eau pour que la plante soit en bonne santé
+def niveaunecessaireeau(plante): #renvoie la valeur que doit atteindre la moyenne du niveau d'eau pour que la plante soit en bonne sante
     conn=sqlite3.connect('baseflor.db')
     c=conn.cursor()
     mesure=get_data(plante, c)[5]
     conn.close()
     return mesure*60 
 
-def niveauneccessairelumiere(plante): #renvoie la valeur que doit atteindre la moyenne du niveau de lumiere pour que la plante soit en bonne santé
+def niveauneccessairelumiere(plante): #renvoie la valeur que doit atteindre la moyenne du niveau de lumiere pour que la plante soit en bonne sante
     conn=sqlite3.connect('baseflor.db')
     c=conn.cursor()
     mesure=get_data(plante, c)[2]
     conn.close()
     return mesure * 70
 
-def niveauneccessairehumidite(plante): #renvoie la valeur que doit atteindre la moyenne du niveau de humi pour que la plante soit en bonne santé
+def niveauneccessairehumidite(plante): #renvoie la valeur que doit atteindre la moyenne du niveau de humi pour que la plante soit en bonne sante
     conn=sqlite3.connect('baseflor.db')
     c=conn.cursor()
     mesure=get_data(plante, c)[4]
     conn.close()
     return mesure*5
 
-def niveauneccessairetemperature(plante): #renvoie la valeur que doit atteindre la moyenne du niveau de temperature pour que la plante soit en bonne santé
+def niveauneccessairetemperature(plante): #renvoie la valeur que doit atteindre la moyenne du niveau de temperature pour que la plante soit en bonne sante
     conn=sqlite3.connect('baseflor.db')
     c=conn.cursor()
     mesure=get_data(plante, c)[3]
     conn.close()
     return 10 + mesure*4 
 
-def quantite_eau_necessaire(moy, plante): #id de la plante fixé arbitrairement, renvoie la quantité d'eau en litre à fournir
+def quantite_eau_necessaire(moy, plante): #id de la plante fixe arbitrairement, renvoie la quantite d'eau en litre à fournir
     return (niveauneccessaireeau() - moy) / 100
 
 
@@ -148,10 +148,10 @@ def alerte(pin):
 
 
 def arroser(litre,pin):
-    """Litre: la quantité d'eau à verser
+    """Litre: la quantite d'eau à verser
        pin: la broche du relai"""
     debit=0.125 # le debit de la pompe en litre/seconde
-    eautotale=0 # L'eau totale versée
+    eautotale=0 # L'eau totale versee
     ouvrir_relai(pin)
     while eautotale < litre:
         time.sleep(1)

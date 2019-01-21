@@ -10,7 +10,7 @@ pin_relai=3
 
 #jour=1#periode dans la quelle on regarde les mesure
 
-periode=24 #nombre de mesure dans cette période
+periode=24 #nombre de mesure dans cette periode
 # le temps entre chaque mesure est set en tant que crontab
 
 #intervalle=3600*1/24
@@ -33,11 +33,11 @@ temperature=[]
 try:
     eau=ajout_eau(pin_hum_sol_surf, eau, periode)
 except TentativeError:
-    print("Le ou les capteurs d'humidité n'ont pas pu être lu")
-    #print("Vérifiez si le capteur d'humidité de profondeur est branché à la prise A"+pin_hum_sol_prof)
-    print("Vérifiez si le capteur d'humidité de surface est branché à la prise A"+pin_hum_sol_prof)
+    print("Le ou les capteurs d'humidite n'ont pas pu être lu")
+    #print("Verifiez si le capteur d'humidite de profondeur est branche à la prise A"+pin_hum_sol_prof)
+    print("Verifiez si le capteur d'humidite de surface est branche à la prise A"+pin_hum_sol_prof)
 else:
-    print("Valeur de l'eau ajoutée")
+    print("Valeur de l'eau ajoutee")
 
 sauvegarder(eau, "eau.txt")
 
@@ -50,10 +50,10 @@ time.sleep(0.5)
 try:
     lumiere=ajout_lumiere(pin_lum,lumiere,periode)
 except TentativeError:
-    print("Le capteur de luminosité n'a pas pu être lu")
-    print("Vérifiez si le capteur de luminosité est branché à la prise A"+pin_lum)
+    print("Le capteur de luminosite n'a pas pu être lu")
+    print("Verifiez si le capteur de luminosite est branche à la prise A"+pin_lum)
 else:
-    print("Valeur de luminosité ajoutée")
+    print("Valeur de luminosite ajoutee")
 
 sauvegarder(lumiere, "lumiere.txt")
 
@@ -67,10 +67,10 @@ time.sleep(0.5)
 try:
     humidite=ajout_humidite(pin_temp, humidite,periode)
 except TentativeError:
-    print("Le capteur d'humidité de l'air/température est branché à la prise D"+pin_temp)
-    print("Vérifiez si le capteur d'humidité de l'air/température est branché à la prise D"+pin_temp)
+    print("Le capteur d'humidite de l'air/temperature est branche à la prise D"+pin_temp)
+    print("Verifiez si le capteur d'humidite de l'air/temperature est branche à la prise D"+pin_temp)
 else:
-    print("Valeur d'humiditée ajoutée")
+    print("Valeur d'humiditee ajoutee")
 
 sauvegarder(humidite, fichier_sauv+ "humidite.txt")
 
@@ -88,10 +88,10 @@ time.sleep(0.5)
 try:
     temperature=ajout_temperature(pin_temp,temperature,periode)
 except TentativeError:
-    print("Le capteur d'humidité de l'air/température n'a pas pu être lu")
-    print("Vérifiez si le capteur d'humidité de l'air/température est branché à la prise D"+pin_temp)
+    print("Le capteur d'humidite de l'air/temperature n'a pas pu être lu")
+    print("Verifiez si le capteur d'humidite de l'air/temperature est branche à la prise D"+pin_temp)
 else:
-    print("Valeur de température ajoutée")
+    print("Valeur de temperature ajoutee")
 
 sauvegarder(temperature,"temperature.txt")
 
@@ -107,13 +107,13 @@ time.sleep(0.5)
 """
 if reservoirvide():
     alerte()
-    print("on ne peut pas s'assurer que la plante a assez d'eau, raison : réservoir vide")
+    print("on ne peut pas s'assurer que la plante a assez d'eau, raison : reservoir vide")
 """
 
 
 
 
-if suffisemment_donnee(periode,eau): # humidite : teste si on a assez de mesures effectuées
+if suffisemment_donnee(periode,eau): # humidite : teste si on a assez de mesures effectuees
     moy=moyenne(eau)
     if ellevacrevereau(moy, plante):
         if automatique:
@@ -135,9 +135,9 @@ if suffisemment_donnee(periode,lumiere):
     moy=moyenne(lumiere)
     if ellevacreverlumiere(moy, plante):
         if moy <= niveauneccessairelumiere(plante):
-            print ("Alerte: mettez votre plante plus à la lumière")
+            print ("Alerte: mettez votre plante plus à la lumiere")
         else:
-            print ("Alerte: mettez votre plante moins à la lumière")
+            print ("Alerte: mettez votre plante moins à la lumiere")
 
 
 if suffisemment_donnee(periode, humidite):
@@ -160,7 +160,7 @@ if suffisemment_donnee(periode,temperature):
             print ("Alerte: mettez votre plante dans un endroit moins chaud")
 
 
-print("la boucle s'est terminée")
+print("la boucle s'est terminee")
 
 
 

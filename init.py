@@ -1,7 +1,7 @@
 
 from pilote_fonction import *
 
-####### Ouvrir la base de donnée sous sql
+####### Ouvrir la base de donnee sous sql
 conn = sqlite3.connect('baseflor.db')
 c = conn.cursor()
 
@@ -18,12 +18,12 @@ while not satisfait :
 	if len(res) <= 0 :
 		res = data_like(nom,c)
 		if len(res) <= 0:
-			print("Votre plante n'a pas été trouvée dans la base de donnée, veuillez réessayer.")
+			print("Votre plante n'a pas ete trouvée dans la base de donnee, veuillez reessayer.")
 		else:
 			rep = ""
 			for data in res:
 				rep += data[1]+"\n"
-			print("Votre plante ne correspond pas a aucun nom, réessayez avec un de ces noms :")
+			print("Votre plante ne correspond pas a aucun nom, reessayez avec un de ces noms :")
 			print(res)
 	else : # nom trouve
 		id_plante = res[0][0]
