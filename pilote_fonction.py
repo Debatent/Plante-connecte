@@ -91,19 +91,19 @@ def reset(liste):
 
 def ellevacrevereau(moy, plante): #on va fixer une plante arbitraire, renvoie true si la plante est dans de mauvaises conditions
     mesure=niveaunecessaireeau(plante)
-    return mesure < (0.8 * moy) 
+    return mesure > (0.8 * moy) 
 
 def ellevacreverlumiere(moy, plante): #idem
     mesure=niveauneccessairelumiere(plante)
-    return (mesure < (0.3 * moy) or mesure > (1.7 * moy))
+    return (mesure > (0.3 * moy) or mesure < (1.7 * moy))
 
 def ellevacrevertemperature(moy, plante): #idem
     mesure=niveauneccessairetemperature(plante)
-    return (mesure < (0.2 * moy) or mesure < (1.8 * moy))
+    return (mesure > (0.2 * moy) or mesure < (1.8 * moy))
 
 def ellevacreverhumidite(moy, plante): #idem
     mesure=niveauneccessairehumidite(plante)
-    return (mesure < (0.2 * moy) or mesure < (1.8 * moy))
+    return (mesure > (0.2 * moy) or mesure < (1.8 * moy))
 
 def niveaunecessaireeau(plante): #renvoie la valeur que doit atteindre la moyenne du niveau d'eau pour que la plante soit en bonne sante
     conn=sqlite3.connect('baseflor.db')

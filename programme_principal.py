@@ -124,7 +124,7 @@ if suffisemment_donnee(periode,eau): # humidite : teste si on a assez de mesures
             reset(eau)
             print("Alerte: veuilliez arroser votre plante")
     else:
-        print("Tout va bien")
+        print("Humidite du sol : Tout va bien")
 
 
 
@@ -138,6 +138,9 @@ if suffisemment_donnee(periode,lumiere):
             print ("Alerte: mettez votre plante plus a la lumiere")
         else:
             print ("Alerte: mettez votre plante moins a la lumiere")
+    else:
+        print("Luminosite : Tout va bien")
+
 
 
 if suffisemment_donnee(periode, humidite):
@@ -147,6 +150,8 @@ if suffisemment_donnee(periode, humidite):
             print ("Alerte: mettez votre plante dans un endroit plus humide")
         else:
             print ("Alerte: mettez votre plante dans un endroit plus sec")
+    else:
+        print("Humidité de l'air : Tout va bien")
 
 
 
@@ -158,6 +163,8 @@ if suffisemment_donnee(periode,temperature):
             print ("Alerte: mettez votre plante dans un endroit plus chaud")
         else:
             print ("Alerte: mettez votre plante dans un endroit moins chaud")
+    else:
+        print("Temperature : Tout va bien")
 
 
 print("la boucle s'est terminee")
