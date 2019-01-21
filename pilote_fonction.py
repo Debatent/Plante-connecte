@@ -153,8 +153,8 @@ def arroser(litre,pin):
        pin: la broche du relai"""
     debit=0.125 # le debit de la pompe en litre/seconde
     eautotale=0 # L'eau totale versee
-    ouvrir_relai(pin)
+    fermer_relai(pin)
     while eautotale < litre:
         time.sleep(1)
         eautotale+=debit
-    fermer_relai(pin)
+    ouvrir_relai(pin)
