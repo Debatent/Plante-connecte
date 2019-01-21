@@ -28,7 +28,7 @@ def charger (nom_fichier):
     resultat=[]
     for i in texte:
         resultat.append(i)
-        print(resultat)
+    print(resultat)
     return resultat
 
 ####################### fonction ###############################
