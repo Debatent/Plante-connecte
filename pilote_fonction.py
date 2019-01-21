@@ -1,4 +1,4 @@
-from pilote_basique_capteur.py import *
+from pilote_basique_capteur import *
 from sql import *
 
 ################### Pilote de sauvegarde/chargement ###########################
