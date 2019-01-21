@@ -38,7 +38,7 @@ def ajout_eau(pin_surf, liste, n):
     a=lecture_humidite_sol (pin_surf)
     liste.append(a)
     if len(liste)>n:
-        return liste[1:]
+        return liste[:1]
     else:
         return liste
 
@@ -46,7 +46,7 @@ def ajout_lumiere(pin, liste, n):
     a=lecture_luminosite(pin)
     liste.append(a)
     if len(liste)>n:
-        return liste[1:]
+        return liste[:1]
     else:
         return liste
 
@@ -54,7 +54,7 @@ def ajout_humidite(pin, liste, n):
     a=lecture_humidite_air(pin)
     liste.append(a)
     if len(liste)>n:
-        return liste[1:]
+        return liste[:1]
     else:
         return liste
 
@@ -62,7 +62,7 @@ def ajout_temperature(pin, liste, n):
     a=lecture_temperature(pin)
     liste.append(a)
     if len(liste)>n:
-        return liste[1:]
+        return liste[:1]
     else:
         return liste
 
