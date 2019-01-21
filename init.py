@@ -22,9 +22,9 @@ while not satisfait :
 		else:
 			rep = ""
 			for data in res:
-				rep += data +"\n"
+				rep += data[1] +"\n"
 			print("Votre plante ne correspond pas a aucun nom, reessayez avec un de ces noms :")
-			print(res)
+			print(rep)
 	else : # nom trouve
 		id_plante = res[0][0]
 		satisfait = True
