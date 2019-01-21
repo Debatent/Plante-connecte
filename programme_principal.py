@@ -72,7 +72,7 @@ except TentativeError:
 else:
     print("Valeur d'humiditee ajoutee")
 
-sauvegarder(humidite, fichier_sauv+ "humidite.txt")
+sauvegarder(humidite,"humidite.txt")
 
 time.sleep(0.5)
 
