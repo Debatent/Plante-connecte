@@ -76,7 +76,7 @@ def suffisemment_donnee(n, liste):
 def moyenne(liste):
     a=0
     for i in liste:
-        a+=i
+        a+=float(i)
     return a/len(liste)
 
 def reset(liste):
