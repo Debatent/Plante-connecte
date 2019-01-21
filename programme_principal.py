@@ -34,8 +34,8 @@ try:
     eau=ajout_eau(pin_hum_sol_surf, eau, periode)
 except TentativeError:
     print("Le ou les capteurs d'humidite n'ont pas pu être lu")
-    #print("Verifiez si le capteur d'humidite de profondeur est branche à la prise A"+pin_hum_sol_prof)
-    print("Verifiez si le capteur d'humidite de surface est branche à la prise A"+pin_hum_sol_prof)
+    #print("Verifiez si le capteur d'humidite de profondeur est branche a la prise A"+pin_hum_sol_prof)
+    print("Verifiez si le capteur d'humidite de surface est branche a la prise A"+pin_hum_sol_prof)
 else:
     print("Valeur de l'eau ajoutee")
 
@@ -51,7 +51,7 @@ try:
     lumiere=ajout_lumiere(pin_lum,lumiere,periode)
 except TentativeError:
     print("Le capteur de luminosite n'a pas pu être lu")
-    print("Verifiez si le capteur de luminosite est branche à la prise A"+pin_lum)
+    print("Verifiez si le capteur de luminosite est branche a la prise A"+pin_lum)
 else:
     print("Valeur de luminosite ajoutee")
 
@@ -67,8 +67,8 @@ time.sleep(0.5)
 try:
     humidite=ajout_humidite(pin_temp, humidite,periode)
 except TentativeError:
-    print("Le capteur d'humidite de l'air/temperature est branche à la prise D"+pin_temp)
-    print("Verifiez si le capteur d'humidite de l'air/temperature est branche à la prise D"+pin_temp)
+    print("Le capteur d'humidite de l'air/temperature est branche a la prise D"+pin_temp)
+    print("Verifiez si le capteur d'humidite de l'air/temperature est branche a la prise D"+pin_temp)
 else:
     print("Valeur d'humiditee ajoutee")
 
@@ -89,7 +89,7 @@ try:
     temperature=ajout_temperature(pin_temp,temperature,periode)
 except TentativeError:
     print("Le capteur d'humidite de l'air/temperature n'a pas pu être lu")
-    print("Verifiez si le capteur d'humidite de l'air/temperature est branche à la prise D"+pin_temp)
+    print("Verifiez si le capteur d'humidite de l'air/temperature est branche a la prise D"+pin_temp)
 else:
     print("Valeur de temperature ajoutee")
 
@@ -135,9 +135,9 @@ if suffisemment_donnee(periode,lumiere):
     moy=moyenne(lumiere)
     if ellevacreverlumiere(moy, plante):
         if moy <= niveauneccessairelumiere(plante):
-            print ("Alerte: mettez votre plante plus à la lumiere")
+            print ("Alerte: mettez votre plante plus a la lumiere")
         else:
-            print ("Alerte: mettez votre plante moins à la lumiere")
+            print ("Alerte: mettez votre plante moins a la lumiere")
 
 
 if suffisemment_donnee(periode, humidite):

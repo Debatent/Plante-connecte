@@ -148,7 +148,7 @@ def alerte(pin):
 
 
 def arroser(litre,pin):
-    """Litre: la quantite d'eau à verser
+    """Litre: la quantite d'eau a verser
        pin: la broche du relai"""
     debit=0.125 # le debit de la pompe en litre/seconde
     eautotale=0 # L'eau totale versee
