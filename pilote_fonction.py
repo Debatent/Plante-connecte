@@ -134,7 +134,7 @@ def niveauneccessairetemperature(plante): #renvoie la valeur que doit atteindre 
     return 10 + float(mesure)*4 
 
 def quantite_eau_necessaire(moy, plante): #id de la plante fixe arbitrairement, renvoie la quantite d'eau en litre a fournir
-    return (niveauneccessaireeau() - moy) / 100
+    return (niveaunecessaireeau(plante) - moy) / 100
 
 
 def init_est_fait():
