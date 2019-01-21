@@ -110,28 +110,28 @@ def niveaunecessaireeau(plante): #renvoie la valeur que doit atteindre la moyenn
     c=conn.cursor()
     mesure=get_data(plante, c)[5]
     conn.close()
-    return mesure*60 
+    return float(mesure)*60 
 
 def niveauneccessairelumiere(plante): #renvoie la valeur que doit atteindre la moyenne du niveau de lumiere pour que la plante soit en bonne sante
     conn=sqlite3.connect('baseflor.db')
     c=conn.cursor()
     mesure=get_data(plante, c)[2]
     conn.close()
-    return mesure * 70
+    return float(mesure) * 70
 
 def niveauneccessairehumidite(plante): #renvoie la valeur que doit atteindre la moyenne du niveau de humi pour que la plante soit en bonne sante
     conn=sqlite3.connect('baseflor.db')
     c=conn.cursor()
     mesure=get_data(plante, c)[4]
     conn.close()
-    return mesure*5
+    return float(mesure)*5
 
 def niveauneccessairetemperature(plante): #renvoie la valeur que doit atteindre la moyenne du niveau de temperature pour que la plante soit en bonne sante
     conn=sqlite3.connect('baseflor.db')
     c=conn.cursor()
     mesure=get_data(plante, c)[3]
     conn.close()
-    return 10 + mesure*4 
+    return 10 + float(mesure)*4 
 
 def quantite_eau_necessaire(moy, plante): #id de la plante fixe arbitrairement, renvoie la quantite d'eau en litre a fournir
     return (niveauneccessaireeau() - moy) / 100
