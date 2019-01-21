@@ -21,10 +21,10 @@ if init_est_fait() :
 else :
 	plante=id_default()
 
-eau=[]
-lumiere=[]
-humidite=[]
-temperature=[]
+eau=charger("eau.txt")
+lumiere=charger("lumiere.txt")
+humidite=charger("humidite.txt")
+temperature=charger("temperature.txt")
 
 
 # while True: Si on fait en CRON, il faut changer ça : plus un while true
