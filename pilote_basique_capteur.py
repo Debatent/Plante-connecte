@@ -66,7 +66,7 @@ def sonnerie_buzzerOFF (num_pin_buzzer):
 
 
 
-######################## Humidité air et température ###########################
+######################## Humidite air et temperature ###########################
 def lecture_temperature(num_pin_temp,couleur=0):
     #port digital
 	temp = grovepi.dht(num_pin_temp,couleur)[0]
