@@ -111,7 +111,9 @@ Normalement, vous verrez, en moins de 30 minutes, s’afficher les dernières me
    
        ◦ Vous devez redemarrer la Plante Connectée comme si c’était la première fois que vous l’utilisez : ses données importantes sont sauvegardées régulièrement
         
-## Materiels utilisés
+## Crédits
+
+Merci à Cédric pour l'idée
 
 RaspberryPi
 
